@@ -9,16 +9,29 @@ class SharkTank extends React.Component {
     students: PropTypes.arrayOf(studentShape.studentShape),
   }
 
+  sharkAttackEvent = (e) => {
+    e.preventDefault();
+    const { students, killStudent } = this.props;
+    const nextVictim = students[Math.floor(Math.random() * students.length)];
+    console.warn(nextVictim);
+    killStudent(nextVictim.id);
+  };
+
   render() {
     const { students } = this.props;
 
     const swimmerCards = students.map((swimmer) => (
         <LiveStudent key={swimmer.id} swimmer={swimmer} />
     ));
-    return (
 
-    <div class="shark-tank">
-      { swimmerCards }
+    return (
+    <div>
+      <div className="console">
+        <button className="btn btn-danger" onClick={this.sharkAttackEvent}>SHARK ATTACK</button>
+      </div>
+      <div className="shark-tank">
+        { swimmerCards }
+      </div>
     </div>
     );
   }

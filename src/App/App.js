@@ -22,6 +22,11 @@ class App extends React.Component {
     this.setState({ liveStudents });
   }
 
+  killStudent = (studentId) => {
+    studentsData.followTheLight(studentId);
+    this.livingStudents();
+  }
+
   render() {
     const { liveStudents } = this.state;
 
@@ -29,10 +34,10 @@ class App extends React.Component {
       <div className="App">
         <h2>INSIDE APP COMPONENT</h2>
         <div className="shark-tank">
-          <SharkTank students={liveStudents} />
+          <SharkTank students={liveStudents} killStudent={this.killStudent} />
         </div>
         <div className="graveyard">
-          <Graveyard/>
+          <Graveyard />
         </div>
       </div>
     );
