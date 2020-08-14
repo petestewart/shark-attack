@@ -55,13 +55,9 @@ const students = [
   },
 ];
 
-const livingStudents = () => {
-  students.filter((student) => student.isDead === false);
-};
+const livingStudents = () => (students.filter((student) => student.isDead === false));
 
-const dearlyBeloved = () => {
-  students.filter((student) => student.isDead === true);
-};
+const dearlyBeloved = () => (students.filter((student) => student.isDead === true));
 
 const followTheLight = (studentId) => {
   const i = students.findIndex((student) => student.id === studentId);
