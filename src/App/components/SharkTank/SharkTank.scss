@@ -1,7 +1,15 @@
 .shark-tank {
-  // width: 100vw;
+  background-color: lightblue;
+}
+
+.live-students {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding: 15px;
+}
+
+.console {
+  background-color: grey;
   padding: 15px;
 }

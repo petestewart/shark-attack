@@ -10,11 +10,14 @@ import './App.scss';
 class App extends React.Component {
   state = {
     liveStudents: [],
+    deadStudents: [],
   }
 
   componentDidMount() {
     const liveStudents = studentsData.livingStudents();
     this.setState({ liveStudents });
+    const deadStudents = studentsData.dearlyBeloved();
+    this.setState({ deadStudents });
   }
 
   livingStudents = () => {
@@ -22,22 +25,27 @@ class App extends React.Component {
     this.setState({ liveStudents });
   }
 
+  departedStudents = () => {
+    const deadStudents = studentsData.dearlyBeloved();
+    this.setState({ deadStudents });
+  }
+
   killStudent = (studentId) => {
     studentsData.followTheLight(studentId);
     this.livingStudents();
+    this.departedStudents();
   }
 
   render() {
-    const { liveStudents } = this.state;
+    const { liveStudents, deadStudents } = this.state;
 
     return (
       <div className="App">
-        <h2>INSIDE APP COMPONENT</h2>
-        <div className="shark-tank">
+        <div>
           <SharkTank students={liveStudents} killStudent={this.killStudent} />
         </div>
-        <div className="graveyard">
-          <Graveyard />
+        <div>
+          <Graveyard students={deadStudents} />
         </div>
       </div>
     );

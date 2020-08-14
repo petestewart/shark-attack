@@ -1,6 +1,6 @@
 const students = [
   {
-    id: 'student1', firstName: 'Austin', lastName: 'Phy', avatar: 'https://avatars3.githubusercontent.com/u/39771100?v=4', isDead: false,
+    id: 'student1', firstName: 'Austin', lastName: 'Phy', avatar: 'https://avatars3.githubusercontent.com/u/39771100?v=4', isDead: true,
   }, {
     id: 'student2', firstName: 'Brooke', lastName: 'Nemchak', avatar: 'https://avatars3.githubusercontent.com/u/62910336?v=4', isDead: false,
   }, {
